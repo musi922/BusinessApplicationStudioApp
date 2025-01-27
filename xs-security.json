@@ -2,6 +2,41 @@
   "xsappname": "sapbtpsimpleapp1",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
-  "scopes": [],
-  "role-templates": []
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Admin",
+      "description": "Admininstrators access all of features"
+    },
+    {
+      "name": "$XSAPPNAME.Employee",
+      "description":"Employee access the specific features"
+    },
+    {
+      "name": "$XSAPPNAME.User",
+      "description":"User has access to view data"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Admin",
+      "description": "Administration role",
+      "scopes-references":[
+        "$XSAPPNAME.Admin"
+      ]
+    },
+    {
+      "name":"Employee",
+      "description":"Employee role",
+      "scopes-references":[
+        "$XSAPPNAME.Employee"
+      ]
+    },
+    {
+      "name":"User",
+      "description":"User role",
+      "scopes-references":[
+        "$XSAPPNAME.User"
+      ]
+    }
+  ]
 }
